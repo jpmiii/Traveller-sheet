@@ -1,0 +1,811 @@
+<div class="sheet">
+
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Character" checked="checked"/>
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2" title="Skills" />
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3" title="Weapons" />
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4" title="Armor" />
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab5" value="5" title="Medical" />
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab6" value="6" title="Equipment" />
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab7" value="7" title="Notes" />
+    <input type="radio" name="attr_tab" class="sheet-tab sheet-tab8" value="8" title="Log" />
+
+    
+<div class="sheet-tab-br"></div>
+    <br>
+<div class="sheet-tab1">
+<div class='sheet-2colrow'>
+<div class='sheet-col'>
+<table border=1>
+    <tr><td><h3>Attribute</h3></td><td>value</td><td>bonus</td><td>roll</td></tr>
+    <tr>
+        <td><div class="tt">Strength </div></td>
+        <td><input type='number' class='short' name='attr_Strength_max' value="7"/></td>
+        <td><input type='number' class='short' name='attr_Strength' value="0" /></td>
+        <td><button type='roll' value='@{character_name} Strength roll \n/roll 2d6 + @{Strength} [Str mod]  + ?{Mod|0} [Mods]+ @{Impairment} [Impairment]' /></td>
+    </tr>
+    <tr>
+        <td><div class="tt">Dexterity </div></td>
+        <td><input type='number' class='short' name='attr_Dexterity_max' value="7" /></td>
+        <td><input type='number' class='short' name='attr_Dexterity' value="0" /></td>
+        <td><button type='roll' value='@{character_name} Dexterity roll \n/roll 2d6 + @{Dexterity} [Dex mod] +?{Mod|0} [Mods] +@{Impairment} [Impairment] ' /></td>
+    </tr>
+    <tr>
+        <td><div class="tt">Endurance </div></td>
+        <td><input type='number' class='short' name='attr_Endurance_max' value="7" /></td>
+        <td><input type='number' class='short' name='attr_Endurance' value="0" /></td>
+        <td><button type='roll' value='@{character_name} Endurance roll  \n/roll 2d6 + @{Endurance} [End mod]+ ?{Mod|0} [Mods] +@{Impairment} [Impairment]' /></td>
+    </tr>
+    <tr>
+        <td><div class="tt">Intelligence </div></td>
+        <td><input type='number' class='short' name='attr_Intelligence_max' value="7" /></td>
+        <td><input type='number' class='short' name='attr_Intelligence' value="0" /></td>
+        <td><button type='roll' value='@{character_name} Intelligence roll \n/roll 2d6 + @{Intelligence} [Int mod]+ ?{Mod|0} [Mods] +@{Impairment} [Impairment] ' /></td>
+    </tr>
+    <tr>
+        <td><div class="tt">Education </div></td>
+        <td><input type='number' class='short' name='attr_Education_max' value="7" /></td>
+        <td><input type='number' class='short' name='attr_Education' value="0" /></td>
+        <td><button type='roll' value='@{character_name} Education roll  \n/roll 2d6 +  @{Education} [Edu mod]+ ?{Mod|0} [Mods] +@{Impairment} [Impairment] ' /></td>
+    </tr>
+    <tr>
+        <td><div class="tt">Social </div></td>
+        <td><input type='number' class='short' name='attr_Social_max' value="7" /></td>
+        <td><input type='number' class='short' name='attr_Social' value="0" /></td>
+        <td><button type='roll' value='@{character_name} Social roll \n/roll 2d6 + @{Social} [Soc mod]+ ?{Mod|0} [Mods] +@{Impairment} [Impairment] ' /></td>
+    </tr>
+    <tr>
+        <td><div class="tt">Psionics </div></td>
+        <td><input type='number' class='short' name='attr_Psi_max' value="0" /></td>
+        <td><input type='number' class='short' name='attr_Psi' value="0" /></td>
+        <td><button type='roll' value='@{character_name} Psi roll  \n/roll 2d6 + @{Psi} [Psi mod]+ ?{Mod|0} [Mods] +@{Impairment} [Impairment]' /></td>
+    </tr>
+</table>
+</div><div class='sheet-col'>
+<table>
+    <tr>
+        <td><div class='tt'>Body Points: </div></td><td><input type='number' name='attr_BodyPoints'  value="0" /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>Impairment: </div></td><td><input type='number' name='attr_Impairment'  value="0" /></td>
+    </tr>
+    <tr>
+        <td>Skill Level <br />Item In Hand</td><td><input type='number' name='attr_IIH'  value="0" /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>To Hit roll: </div></td><td><button type='roll' value='@{character_name} To Hit success level: [[2d6+@{Dexterity}+@{Impairment} [Impairment] +@{IIH}+?{Mod|0} [Mods]-7]]' /></td>
+    </tr>
+</table>
+</div></div>
+  
+
+
+
+</div>
+<div class="sheet-tab2">
+     
+ <h3>Skills</h3>
+
+<div class='sheet-3colrow'>
+<div class='sheet-col'>
+  <table>
+  
+  
+  
+<tr><td><button type='roll' value='@{character_name} uses Admin -  [[2d6 + @{Impairment} [Impairment]  + ?{Mod|0} [Mods] + @{Admin_skill} [Skill]   - 7]]' /></td><td> <h4>Admin</h4></td><td> <input type='number' name='attr_Admin_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Advocate - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Advocate_skill} [Skill] -7]]' /></td><td>        <h4>Advocate</h4></td><td> <input type='number' name='attr_Advocate_skill' />  </td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>  <h4>Animals </h4> </td></tr>
+
+
+<tr><td><button type='roll' value='@{character_name} uses Riding - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Riding_skill} [Skill] -7]]' /></td><td>          <h4>Riding:</h4></td><td> <input type='number' name='attr_Riding_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Veterinary - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Veterinary_skill} [Skill] -7]]' /></td><td>       <h4>Veterinary:</h4></td><td> <input type='number' name='attr_Veterinary_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Training - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Training_skill} [Skill] -7]]' /></td><td>       <h4>Training:</h4></td><td> <input type='number' name='attr_Training_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Farming - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Farming_skill} [Skill] -7]]' /></td><td>        <h4>Farming:</h4></td><td> <input type='number' name='attr_Farming_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Athletics</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Co-ordination - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Co-ordination_skill} [Skill] -7]]' /></td><td>        <h4>Co-ordination:</h4></td><td> <input type='number' name='attr_Co-ordination_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Endurance - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Endurance_skill} [Skill] -7]]' /></td><td>        <h4>Endurance:</h4></td><td> <input type='number' name='attr_Endurance_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Strength - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Strength_skill} [Skill] -7]]' /></td><td>       <h4>Strength:</h4></td><td> <input type='number' name='attr_Strength_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Flying - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Flying_skill} [Skill] -7]]' /></td><td>        <h4>Flying:</b>  </li></td><td> <input type='number' name='attr_Flying_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>  <h4>Art</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Acting - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Acting_skill} [Skill] -7]]' /></td><td>        <h4>Acting:</h4></td><td> <input type='number' name='attr_Acting_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Dance - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Dance_skill} [Skill] -7]]' /></td><td>       <h4>Dance:</h4></td><td> <input type='number' name='attr_Dance_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Holography - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Holography_skill} [Skill] -7]]' /></td><td>        <h4>Holography:</h4></td><td> <input type='number' name='attr_Holography_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Instrument - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Instrument_skill} [Skill] -7]]' /></td><td>        <h4>Instrument:</h4></td><td> <input type='number' name='attr_Instrument_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Sculpting - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Sculpting_skill} [Skill] -7]]' /></td><td>        <h4>Sculpting:</h4></td><td> <input type='number' name='attr_Sculpting_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Writing - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Writing_skill} [Skill] -7]]' /></td><td>        <h4>Writing:</h4></td><td> <input type='number' name='attr_Writing_skill' />  </td></tr>
+
+
+</table></td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Astrogation - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Astrogation_skill} [Skill] -7]]' /></td><td>    <h4>Astrogation</h4></td><td> <input type='number' name='attr_Astrogation_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Battle Dress - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{BattleDress_skill} [Skill] -7]]' /></td><td>    <h4>Battle Dress</h4></td><td> <input type='number' name='attr_BattleDress_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Broker - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Broker_skill} [Skill] -7]]' /></td><td>   <h4>Broker</h4></td><td> <input type='number' name='attr_Broker_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Carouse - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Carouse_skill} [Skill] -7]]' /></td><td>    <h4>Carouse</h4></td><td> <input type='number' name='attr_Carouse_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Comms - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Comms_skill} [Skill] -7]]' /></td><td>    <h4>Comms</h4></td><td> <input type='number' name='attr_Comms_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Computers - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Computers_skill} [Skill] -7]]' /></td><td>    <h4>Computers</h4></td><td> <input type='number' name='attr_Computers_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Deception - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Deception_skill} [Skill] -7]]' /></td><td>     <h4>Deception</h4></td><td> <input type='number' name='attr_Deception_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Diplomat - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Diplomat_skill} [Skill] -7]]' /></td><td>    <h4>Diplomat</h4></td><td> <input type='number' name='attr_Diplomat_skill' />  </td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Drive</h4>  </td></tr>
+
+
+<tr><td><button type='roll' value='@{character_name} uses Mole - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Mole_skill} [Skill] -7]]' /></td><td>        <h4>Mole:</b>  </li></td><td> <input type='number' name='attr_Mole_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Tracked - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Tracked_skill} [Skill] -7]]' /></td><td>        <h4>Tracked:</h4></td><td> <input type='number' name='attr_Tracked_skill' />  </td></tr>
+
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>      <h4>Engineer</h4> </td></tr>
+
+
+<tr><td><button type='roll' value='@{character_name} uses Manoeuvre Drive - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{ManoeuvreDrive_skill} [Skill] -7]]' /></td><td>        <h4>Manoeuvre Drive:</h4></td><td> <input type='number' name='attr_ManoeuvreDrive_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Jump Drive - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{JumpDrive_skill} [Skill] -7]]' /></td><td>        <h4>Jump Drive:</h4></td><td> <input type='number' name='attr_JumpDrive_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Electronics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Electronics_skill} [Skill] -7]]' /></td><td>        <h4>Electronics:</h4></td><td> <input type='number' name='attr_Electronics_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Life Support - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{LifeSupport_skill} [Skill] -7]]' /></td><td>        <h4>Life Support:</h4></td><td> <input type='number' name='attr_LifeSupport_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Power - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Power_skill} [Skill] -7]]' /></td><td>        <h4>Power:</h4></td><td> <input type='number' name='attr_Power_skill' />  </td></tr>
+
+
+</table></td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Explosives - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Explosives_skill} [Skill] -7]]' /></td><td>   <h4>Explosives</h4></td><td> <input type='number' name='attr_Explosives_skill' />  </td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Flyer</h4> </td></tr>
+
+
+<tr><td><button type='roll' value='@{character_name} uses Grav - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Grav_skill} [Skill] -7]]' /></td><td>        <h4>Grav:</h4></td><td> <input type='number' name='attr_Grav_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Rotor - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Rotor_skill} [Skill] -7]]' /></td><td>        <h4>Rotor:</h4></td><td> <input type='number' name='attr_Rotor_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses  - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{_skill} [Skill] -7]]' /></td><td>        <h4>Wing:</h4></td><td> <input type='number' name='attr__skill' />  </td></tr>
+    
+
+</table></td></tr>
+
+    
+    
+</table>
+
+
+
+</div><div class='sheet-col'>
+          
+<table>
+          
+          
+          
+<tr><td><button type='roll' value='@{character_name} uses Gambler - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Gambler_skill} [Skill] -7]]' /></td><td>    <h4>Gambler</h4></td><td> <input type='number' name='attr_Gambler_skill' />  </td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>   <h4>Gunner</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Turrets - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Turrets_skill} [Skill] -7]]' /></td><td>        <h4>Turrets:</h4></td><td> <input type='number' name='attr_Turrets_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Ortillery - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Ortillery_skill} [Skill] -7]]' /></td><td>        <h4>Ortillery:</h4></td><td> <input type='number' name='attr_Ortillery_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Screens - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Screens_skill} [Skill] -7]]' /></td><td>        <h4>Screens:</h4></td><td> <input type='number' name='attr_Screens_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Capital Weapons - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{CapitalWeapons_skill} [Skill] -7]]' /></td><td>        <h4>Capital Weapons:</h4></td><td> <input type='number' name='attr_CapitalWeapons_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>      <h4>Gun Combat </h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Slug Rifle - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{SlugRifle_skill} [Skill] -7]]' /></td><td>        <h4>Slug Rifle:</b>  </li></td><td> <input type='number' name='attr_SlugRifle_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Slug Pistol - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{SlugPistol_skill} [Skill] -7]]' /></td><td>        <h4>Slug Pistol:</h4></td><td> <input type='number' name='attr_SlugPistol_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Shotgun - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Shotgun_skill} [Skill] -7]]' /></td><td>        <h4>Shotgun:</h4></td><td> <input type='number' name='attr_Shotgun_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Energy Rifle - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{EnergyRifle_skill} [Skill] -7]]' /></td><td>        <h4>Energy Rifle:</h4></td><td> <input type='number' name='attr_EnergyRifle_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Energy Pistol - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{EnergyPistol_skill} [Skill] -7]]' /></td><td>        <h4>Energy Pistol:</h4></td><td> <input type='number' name='attr_EnergyPistol_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>   <h4>Heavy Weapons</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Launchers - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Launchers_skill} [Skill] -7]]' /></td><td>         <h4>Launchers:</h4></td><td> <input type='number' name='attr_Launchers_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Man Portable - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{ManPortable_skill} [Skill] -7]]' /></td><td>        <h4>Man Portable Artillery:</h4></td><td> <input type='number' name='attr_ManPortable_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Field Artillery - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{FieldArtillery_skill} [Skill] -7]]' /></td><td>        <h4>Field Artillery:</h4></td><td> <input type='number' name='attr_FieldArtillery_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Investigate - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Investigate_skill} [Skill] -7]]' /></td><td>    <h4>Investigate</h4></td><td> <input type='number' name='attr_Investigate_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Jack of All Trades  - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{JackofAllTrades_skill} [Skill] -7]]' /></td><td>    <h4>Jack of All Trades</h4></td><td> <input type='number' name='attr_JackofAllTrades_skill' />  </td></tr>
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>     <h4>Language</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} usesAnglic  - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Anglic_skill} [Skill] -7]]' /></td><td>        <h4>Anglic:</b>  </li></td><td> <input type='number' name='attr_Anglic_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Leadership - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Leadership_skill} [Skill] -7]]' /></td><td>    <h4>Leadership</h4></td><td> <input type='number' name='attr_Leadership_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Mechanic - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Mechanic_skill} [Skill] -7]]' /></td><td>    <h4>Mechanic</h4></td><td> <input type='number' name='attr_Mechanic_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Medic - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Medic_skill} [Skill] -7]]' /></td><td>     <h4>Medic</h4></td><td> <input type='number' name='attr_Medic_skill' />  </td></tr>
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>  <h4>Melee</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Unarmed Combat - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{UnarmedCombat_skill} [Skill] -7]]' /></td><td>        <h4>Unarmed Combat:</h4></td><td> <input type='number' name='attr_UnarmedCombat_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Blade - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Blade_skill} [Skill] -7]]' /></td><td>        <h4>Blade:</h4></td><td> <input type='number' name='attr_Blade_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Bludgeon - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Bludgeon_skill} [Skill] -7]]' /></td><td>        <h4>Bludgeon:</h4></td><td> <input type='number' name='attr_Bludgeon_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Natural Weapons - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{NaturalWeapons_skill} [Skill] -7]]' /></td><td>        <h4>Natural Weapons:</h4></td><td> <input type='number' name='attr_NaturalWeapons_skill' />  </td></tr>
+    
+    
+
+</table></td></tr>
+
+          
+<tr><td><button type='roll' value='@{character_name} uses Navigation - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Navigation_skill} [Skill] -7]]' /></td><td>    <h4>Navigation</h4></td><td> <input type='number' name='attr_Navigation_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Persuade - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Persuade_skill} [Skill] -7]]' /></td><td>    <h4>Persuade</h4></td><td> <input type='number' name='attr_Persuade_skill' />  </td></tr>
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Pilot</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Small Craft - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{SmallCraft_skill} [Skill] -7]]' /></td><td>        <h4>Small Craft:</h4></td><td> <input type='number' name='attr_SmallCraft_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Spacecraft - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Spacecraft_skill} [Skill] -7]]' /></td><td>        <h4>Spacecraft:</h4></td><td> <input type='number' name='attr_Spacecraft_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Capital Ships - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{CapitalShips_skill} [Skill] -7]]' /></td><td>        <h4>Capital Ships:</h4></td><td> <input type='number' name='attr_CapitalShips_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Recon - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Recon_skill} [Skill] -7]]' /></td><td>    <h4>Recon</h4></td><td> <input type='number' name='attr_Recon_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Remote Operations - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{RemoteOperations_skill} [Skill] -7]]' /></td><td>    <h4>Remote Operations</h4></td><td> <input type='number' name='attr_RemoteOperations_skill' />  </td></tr>
+
+    
+</table>
+
+
+
+</div><div class='sheet-col'>
+          
+<table>
+
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Physical Sciences</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Physics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Physics_skill} [Skill] -7]]' /></td><td>        <h4>Physics:</h4></td><td> <input type='number' name='attr_Physics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Chemistry - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Chemistry_skill} [Skill] -7]]' /></td><td>        <h4>Chemistry:</b>  </li></td><td> <input type='number' name='attr_Chemistry_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Electronics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Electronics_skill} [Skill] -7]]' /></td><td>        <h4>Electronics:</h4></td><td> <input type='number' name='attr_Electronics_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Life Sciences</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Biology - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Biology_skill} [Skill] -7]]' /></td><td>        <h4>Biology:</h4></td><td> <input type='number' name='attr_Biology_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Cybernetics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Cybernetics_skill} [Skill] -7]]' /></td><td>        <h4>Cybernetics:</h4></td><td> <input type='number' name='attr_Cybernetics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Genetics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Genetics_skill} [Skill] -7]]' /></td><td>        <h4>Genetics:</h4></td><td> <input type='number' name='attr_Genetics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Psionicology - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Psionicology_skill} [Skill] -7]]' /></td><td>        <h4>Psionicology:</h4></td><td> <input type='number' name='attr_Psionicology_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>     <h4>Social Sciences</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Archeology - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Archeology_skill} [Skill] -7]]' /></td><td>        <h4>Archeology:</b>  </li></td><td> <input type='number' name='attr_Archeology_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Economics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Economics_skill} [Skill] -7]]' /></td><td>        <h4>Economics:</h4></td><td> <input type='number' name='attr_Economics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses History - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{History_skill} [Skill] -7]]' /></td><td>        <h4>History:</h4></td><td> <input type='number' name='attr_History_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Linguistics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Linguistics_skill} [Skill] -7]]' /></td><td>        <h4>Linguistics:</h4></td><td> <input type='number' name='attr_Linguistics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Philosophy - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Philosophy_skill} [Skill] -7]]' /></td><td>        <h4>Philosophy:</h4></td><td> <input type='number' name='attr_Philosophy_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Psychology - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Psychology_skill} [Skill] -7]]' /></td><td>        <h4>Psychology:</h4></td><td> <input type='number' name='attr_Psychology_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Sophontology - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Sophontology_skill} [Skill] -7]]' /></td><td>        <h4>Sophontology:</h4></td><td> <input type='number' name='attr_Sophontology_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>   <h4>Space Sciences</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Planetology - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Planetology_skill} [Skill] -7]]' /></td><td>        <h4>Planetology:</h4></td><td> <input type='number' name='attr_Planetology_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Robotics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Robotics_skill} [Skill] -7]]' /></td><td>        <h4>Robotics:</h4></td><td> <input type='number' name='attr_Robotics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Xenology - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Xenology_skill} [Skill] -7]]' /></td><td>        <h4>Xenology:</h4></td><td> <input type='number' name='attr_Xenology_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Seafarer</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Sail - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Sail_skill} [Skill] -7]]' /></td><td>       <h4>Sail:</h4></td><td> <input type='number' name='attr_Sail_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Submarine - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Submarine_skill} [Skill] -7]]' /></td><td>        <h4>Submarine:</h4></td><td> <input type='number' name='attr_Submarine_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Ocean Ships - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{OceanShips_skill} [Skill] -7]]' /></td><td>        <h4>Ocean Ships:</b>.</li></td><td> <input type='number' name='attr_OceanShips_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Motorboats - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Motorboats_skill} [Skill] -7]]' /></td><td>        <h4>Motorboats:</h4></td><td> <input type='number' name='attr_Motorboats_skill' />  </td></tr>
+
+</table></td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Security - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Security_skill} [Skill] -7]]' /></td><td>    <h4>Security</h4></td><td> <input type='number' name='attr_Security_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Sensors - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Sensors_skill} [Skill] -7]]' /></td><td>    <h4>Sensors</h4></td><td> <input type='number' name='attr_Sensors_skill' />  </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Stealth - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Stealth_skill} [Skill] -7]]' /></td><td>    <h4>Stealth</h4></td><td> <input type='number' name='attr_Stealth_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Steward - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Steward_skill} [Skill] -7]]' /></td><td>    <h4>Steward</h4></td><td> <input type='number' name='attr_Steward_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Streetwise - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Streetwise_skill} [Skill] -7]]' /></td><td>    <h4>Streetwise</h4></td><td> <input type='number' name='attr_Streetwise_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Survival - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Survival_skill} [Skill] -7]]' /></td><td>    <h4>Survival</h4></td><td> <input type='number' name='attr_Survival_skill' />  </td></tr>
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>    <h4>Tactics</h4> </td></tr>
+
+
+<tr><td><button type='roll' value='@{character_name} uses Military Tactics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{MilitaryTactics_skill} [Skill] -7]]' /></td><td>        <h4>Military Tactics:</h4></td><td> <input type='number' name='attr_MilitaryTactics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Naval Tactics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{NavalTactics_skill} [Skill] -7]]' /></td><td>        <h4>Naval Tactics:</h4></td><td> <input type='number' name='attr_NavalTactics_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td colspan=3>  <table border=1 width='100%'><tr><td colspan=3>     <h4>Trade</h4> </td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Biologicals - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Biologicals_skill} [Skill] -7]]' /></td><td>        <h4>Biologicals:</h4></td><td> <input type='number' name='attr_Biologicals_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Civil Engineering - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{CivilEngineering_skill} [Skill] -7]]' /></td><td>        <h4>Civil Engineering:</h4></td><td> <input type='number' name='attr_CivilEngineering_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Space Construction - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{SpaceConstruction_skill} [Skill] -7]]' /></td><td>        <h4>Space Construction:</h4></td><td> <input type='number' name='attr_SpaceConstruction_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Hydroponics - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Hydroponics_skill} [Skill] -7]]' /></td><td>        <h4>Hydroponics:</h4></td><td> <input type='number' name='attr_Hydroponics_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Polymers - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Polymers_skill} [Skill] -7]]' /></td><td>        <h4>Polymers:</h4></td><td> <input type='number' name='attr_Polymers_skill' />  </td></tr>
+
+</table></td></tr>
+
+<tr><td><button type='roll' value='@{character_name} uses Vacc Suit - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{VaccSuit_skill} [Skill] -7]]' /></td><td>    <h4>Vacc Suit</h4></td><td> <input type='number' name='attr_VaccSuit_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Zero-G - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Zero-G_skill} [Skill] -7]]' /></td><td>    <h4>Zero-G</h4></td><td> <input type='number' name='attr_Zero-G_skill' />  </td></tr></table>
+
+
+
+
+</div></div>
+
+<h2 id="skills">Skills</h2>
+    <h4>Admin</h4>
+    <p class="first">This skill covers bureaucracies and administration of all sorts, including the navigation of bureaucratic obstacles or disasters</p>
+
+    <h4>Advocate</h4>
+    <p class="first">Advocate gives a knowledge of common legal codes and practises, especially interstellar law</p>
+
+    <h4>Animals </h4>
+    <p class="first">This skill, rare on industrialised or technologically advanced worlds, is for the care of animals</p>
+      <ul class="ulstyle3">
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Riding:</b> The character knows how to ride an animal who is trained to bear a rider. </li>
+        <li><b>Veterinary:</b> The character is trained in veterinary medicine and animal care.</li>
+        <li><b>Training:</b> The character knows how to tame and train animals.</li>
+        <li><b>Farming:</b> The character can grow and harvest crops and raise animals.</li>
+      </ul>
+    <h4>Athletics</h4>
+    <p class="first">The character is a trained athlete and is physically fit</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Co-ordination:</b> Climbing, juggling, throwing.</li>
+        <li><b>Endurance:</b> Long-distance running, hiking.</li>
+        <li><b>Strength:</b> Feats of strength, weight-lifting.</li>
+        <li><b>Flying:</b> Species that fly gain this skill for free at level 0. </li>
+      </ul>
+    <h4>Art</h4>
+    <p class="first">The character is trained in a type of creative art</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Acting:</b> The character is a trained actor, at home on the stage, screen or holo. </li>
+        <li><b>Dance:</b> The character is trained dancer and performer.</li>
+        <li><b>Holography:</b> Recording and producing aesthetically pleasing and clear holographic images.</li>
+        <li><b>Instrument:</b> Playing a particular musical instrument, such a flute, piano or organ.</li>
+        <li><b>Sculpting:</b> Making artistic or abstract sculptures in a variety of media.</li>
+        <li><b>Writing:</b> Composing inspiring or interesting pieces of text.</li>
+      </ul>
+    <h4>Astrogation</h4>
+    <p class="first">This skill is for plotting the courses of starships and calculating accurate jumps</p>
+    <h4>Battle Dress</h4>
+    <p class="first">This skill permits the character to operate advanced battle armour</p>
+    <h4>Broker</h4>
+    <p class="first">The Broker skill allows a character to negotiate trades and arrange fair deals</p>
+    <h4>Carouse</h4>
+    <p class="first">Carousing is the art of socialising; of having fun, but also ensuring that other people have fun, of infectious good humour</p>
+    <h4>Comms</h4>
+    <p class="first">The Comms skill covers the use of modern telecommunications – opening communications channels, querying computer networks, jamming signals and so on, as well as the proper protocols for communicating with starports and other spacecraft</p>
+    <h4>Computers</h4>
+    <p class="first">The Computers skill is for using and controlling computer systems</p>
+    <h4>Deception</h4>
+    <p class="first">Deception allows a character to lie fluently, disguise himself, perform sleight of hand and fool onlookers</p>
+    <h4>Diplomat</h4>
+    <p class="first">The Diplomat skill is for negotiating deals, establishing peaceful contact and smoothing over social faux pas</p>
+    <h4>Drive</h4>
+    <p class="first">This skill is for controlling ground vehicles of various types. There are several specialities</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Mole:</b> For controlling vehicles that move through solid matter using drills or other earth-moving technologies, like plasma torches or cavitation. </li>
+        <li><b>Tracked:</b> For tanks and other vehicles that move on tracks.</li>
+        <li><b>Wheeled:</b> For automobiles and similar groundcars.</li>
+      </ul>
+    <h4>Engineer</h4>
+    <p class="first">The Engineer skill is used to operate and maintain spacecraft and advanced vehicles</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Manoeuvre Drive (M-Drive):</b> Maintaining and operating a spacecraft’s manoeuvre drive, as well as its artificial gravity. </li>
+        <li><b>Jump Drive (J-Drive):</b> Maintaining and operating a spacecraft’s Jump drive.</li>
+        <li><b>Electronics:</b> All forms of computing hardware, sensors and other electronics and electrics.</li>
+        <li><b>Life Support:</b> Covers oxygen generators, heating and lighting and other necessary life support </li>
+        <li><b>Power:</b> Maintaining and operating a spacecraft’s power plant.</li>
+      </ul>
+    <h4>Explosives</h4>
+    <p class="first">The Explosives skill covers the use of demolition charges and other explosive devices, including assembling or disarming bombs</p>
+    <h4>Flyer</h4>
+    <p class="first">The various specialities of this skill cover different types of flying vehicles</p>
+      <ul>
+        <li><b>Grav:</b> This covers air/rafts and other vehicles that use gravitic technology. Grav vehicles have theoretically perfect manoeuvrability and can hover, but skill checks may be necessary when performing high-speed aerobatics.</li>
+        <li><b>Rotor:</b> For helicopters, hovercraft and other similar craft. Rotor craft can hover but may require skill checks to keep steady in the face of adverse environmental conditions.</li>
+        <li><b>Wing:</b> For jets and other aeroplanes using a lifting body. Winged aircraft must keep moving forwards or they will stall and fall out of the sky.</li>
+      </ul>
+    <h4>Gambler</h4>
+    <p class="first">The character is familiar with a wide variety of gambling games, such as poker, roulette, blackjack, horse-racing, sports betting and so on, and has an excellent grasp of statistics and probability</p>
+
+    <h4>Gunner</h4>
+    <p class="first">The various specialities of this skill deal with the operation of ship-mounted weapons in space combat</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Turrets:</b> Operating turret-mounted weapons on board a ship.</li>
+        <li><b>Ortillery:</b> An abbreviation of Orbital artillery – using a ship’s weapons for planetary bombardment or attacks on stationary targets.</li>
+        <li><b>Screens:</b> Activating and using a ship’s energy screens like Black Globe generators or meson screens.</li>
+        <li><b>Capital Weapons:</b> Operating bay or spinal mount weapons on board a ship.</li>
+      </ul>
+    <h4>Gun Combat </h4>
+    <p class="first">The Gun Combat skill covers a variety of ranged weapons</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Slug Rifle:</b> Using rifle weapons such as the autorifle or gauss rifle. </li>
+        <li><b>Slug Pistol:</b> Using pistols like the body pistol or snub pistol.</li>
+        <li><b>Shotgun:</b> Using shotguns.</li>
+        <li><b>Energy Rifle:</b> Using advanced energy weapons like laser rifles or plasma rifles.</li>
+        <li><b>Energy Pistol:</b> Using advanced pistol-style energy weapons like laser pistols and stunners.</li>
+      </ul>
+    <h4>Heavy Weapons</h4>
+    <p class="first">The Heavy Weapons skill covers man-portable and larger weapons that cause extreme property damage, such as rocket launchers, artillery and plasma weapons</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Launchers:</b> Rocket launchers and grenade launchers.</li>
+        <li><b>Man Portable Artillery:</b> Man portable fusion and plasma weapons – the FGMP, PGMP and similar.</li>
+        <li><b>Field Artillery:</b> Fixed guns, mortars and other indirect-fire weapons.</li>
+      </ul>
+    <h4>Investigate</h4>
+    <p class="first">The Investigate skill incorporates keen observation, forensics, and detailed analysis</p>
+    <h4>Jack of All Trades</h4>
+    <p class="first">The Jack of All Trades skill works differently to other skills. It reduces the unskilled penalty a character receives for not having the appropriate skill by one for every level of Jack of All Trades</p>
+    <h4>Language</h4>
+    <p class="first">There are numerous different Language specialities, each one covering reading and writing a different language. All characters can speak and read their native language without needing the Language skill, and automated computer translator programs mean that Language skills are not always needed on other worlds. Having Language 0 implies that the character has a smattering of simple phrases in many languages</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Anglic:</b> The common Trade language, derived originally from the English spoken in the Rule of Man. </li>
+      </ul>
+    <h4>Leadership</h4>
+    <p class="first">The Leadership skill is for directing, inspiring and rallying allies and comrades</p>
+    <h4>Life Sciences</h4>
+    <h4>Mechanic</h4>
+    <p class="first">The Mechanic skill allows the character to maintain and repair most equipment</p>
+    <h4>Medic</h4>
+    <p class="first">The Medic skill covers emergency first aid and battlefield triage as well as diagnosis, treatment, surgery and long-term care</p>
+    <h4>Melee</h4>
+    <p class="first">The melee skill covers attacking in hand-to-hand combat</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Unarmed Combat:</b> Whether it is trained martial arts or street fighting learned the hard way, this is the skill for using your body as a weapon. </li>
+        <li><b>Blade:</b> Attacking with swords, rapiers, blades and other edged weapons.</li>
+        <li><b>Bludgeon:</b> Attacking with maces, clubs, staves and so on.</li>
+        <li><b>Natural Weapons:</b> The favoured combat skill of wild animals, this covers fighting with claws, teeth, and other weapons that are a part of you. </li>
+      </ul>
+    <h4>Navigation</h4>
+    <p class="first">Navigation is the planet-side counterpart of astro-gation, covering plotting courses and finding directions on the ground</p>
+    <h4>Persuade</h4>
+    <p class="first">Persuade is a more casual, informal version of Diplomacy</p>
+    <h4>Pilot</h4>
+    <p class="first">The Pilot skill specialities cover different forms of spacecraft</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Small Craft:</b> Shuttles and other craft under 100 tons.</li>
+        <li><b>Spacecraft:</b> Trade ships and other vessels between 100 and 5,000 tons.</li>
+        <li><b>Capital Ships:</b> Battleships and other ships over 5,000 tons.</li>
+      </ul>
+    <h4>Physical Sciences</h4>
+    <h4>Recon</h4>
+    <p class="first">A character trained in Recon is able to scout out dangers and spot threats, unusual objects or out of place people</p>
+    <h4>Remote Operations</h4>
+    <p class="first">Remote operations is the skill of using telepresence to remotely control drones, missiles, robots and other devices</p>
+    <h4>Science</h4>
+    <p class="first">There are four separate Science skills – Physical Sciences, Life Sciences, Social Sciences and Space Sciences. Each science skill has a number of specialisations</p>
+    <h4>Physical Sciences</h4>
+      <ul>
+        <li><b>Physics:</b> The study of the fundamental forces.</li>
+        <li><b>Chemistry:</b> The study of matter at the atomic, molecular, and macromolecular levels </li>
+        <li><b>Electronics:</b> The study of circuits and computers. </li>
+      </ul>
+    <h4>Life Sciences</h4>
+      <ul>
+        <li><b>Biology:</b> The study of living organisms.</li>
+        <li><b>Cybernetics:</b> The study of blending living and synthetic life.</li>
+        <li><b>Genetics:</b> The study of genetic codes and engineering.</li>
+        <li><b>Psionicology:</b> The study of psionic powers and phenomena.</li>
+      </ul>
+    <h4>Social Sciences</h4>
+      <ul>
+        <li><b>Archeology:</b> The study of ancient civilisations. It also covers techniques of investigation and excavations. </li>
+        <li><b>Economics:</b> The study of trade and markets.</li>
+        <li><b>History:</b> The study of the past, as seen through documents and records as opposed to physical artefacts.</li>
+        <li><b>Linguistics:</b> The study of languages.</li>
+        <li><b>Philosophy:</b> The study of beliefs and religions. </li>
+        <li><b>Psychology:</b> The study of thought and society. </li>
+        <li><b>Sophontology:</b> The study of intelligent living creatures.</li>
+      </ul>
+    <h4>Space Sciences</h4>
+      <ul>
+        <li><b>Planetology:</b> The study of planet formation and evolution. </li>
+        <li><b>Robotics:</b> The study of robot construction and use.</li>
+        <li><b>Xenology:</b> The study of alien life forms.</li>
+      </ul>
+    <h4>Seafarer</h4>
+    <p class="first">
+The Seafarer skill covers all manner of watercraft and ocean travel</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Sail:</b> This skill is for wind-driven watercraft.</li>
+        <li><b>Submarine:</b> For vehicles that travel underwater.</li>
+        <li><b>Ocean Ships:</b> For large, motorised sea-going vessels.</li>
+        <li><b>Motorboats:</b> For motorised small craft.</li>
+      </ul>
+    <h4>Sensors</h4>
+    <p class="first">The Sensors skill covers the use and interpretation of data from electronic sensor devices, from observation satellites and remote probes to thermal imaging and densitometers</p>
+    <h4>Social Sciences</h4>
+    <h4>Space Sciences</h4>
+    <h4>Stealth</h4>
+    <p class="first">A character trained in the Stealth skill is adept at staying unseen and unheard</p>
+    <h4>Steward</h4>
+    <p class="first">The Steward skill allows the character to serve and care for nobles and high-class passengers</p>
+    <h4>Streetwise</h4>
+    <p class="first">A character with the Streetwise skill understands the urban environment and the power structures in society</p>
+    <h4>Survival</h4>
+    <p class="first">The Survival skill is the wilderness counterpart of the urban Streetwise skill – the character is trained to survive in the wild, build shelters, hunt or trap animals, avoid exposure and so forth</p>
+    <h4>Tactics</h4>
+    <p class="first">
+This skill covers tactical planning and decision making, from board games to squad level combat to fleet engagements</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Military Tactics:</b> Coordinating the attacks of foot troops or vehicles on the ground.</li>
+        <li><b>Naval Tactics:</b> Coordinating the attacks of a spacecraft or fleet.</li>
+      </ul>
+    <h4>Trade</h4>
+    <p class="first">A character with a Trade skill is trained in producing some useful goods or services</p>
+      <ul>
+        <li class="li2"><label>Specialities</label></li>
+        <li><b>Biologicals:</b> Engineering and managing artificial organisms.</li>
+        <li><b>Civil Engineering:</b> Designing structures and buildings.</li>
+        <li><b>Space Construction:</b> Building orbital habitats and megastructures.</li>
+        <li><b>Hydroponics:</b> Growing crops in hostile environments.</li>
+        <li><b>Polymers:</b> Designing and using polymers.</li>
+      </ul>
+    <h4>Vacc Suit</h4>
+    <p class="first">The Vacc Suit skill allows a character to wear and operate spacesuits and environmental suits. If the character does not have the requisite Vacc Suit skill for the suit he is wearing, he suffers a –2 DM to all skill checks made while wearing a suit for each missing level</p>
+    <h4>Zero-G</h4>
+    <p class="first">Having the Zero-G skill means the character is adept at moving around in micro-gravity environments and freefall. A character without the Zero-G skill suffers a –2 DM to all checks made in free-fall</p>
+   
+
+<hr></hr>
+
+<fieldset class="repeating_skills">     
+
+<table>
+<tr><td><button type='roll' value='@{character_name} uses @{skillname} - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{skillvalue}-7]]' /></td><td class='sk'><input type="text" class='med' name="attr_skillname" /></td><td> <input type='number' name='attr_skillvalue' />  </td></tr></table>     
+</fieldset>
+
+
+</div>
+
+
+
+
+<div class="sheet-tab3">3
+ </div>
+<div class="sheet-tab4">
+<table>
+    <tr>
+        <td><div class='tt'>AV Head: </div></td><td><input type='number' name='attr_AVhead'  value=0 /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>AV Chest: </div></td><td><input type='number' name='attr_AVchest'  value=0 /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>AV L Arm: </div></td><td><input type='number' name='attr_AVlarm'  value=0 /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>AV L Leg: </div></td><td><input type='number' name='attr_AVlleg'  value=0 /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>AV Abdomen: </div></td><td><input type='number' name='attr_AVabdomen'  value=0 /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>AV R Arm: </div></td><td><input type='number' name='attr_AVrarm'  value=0 /></td>
+    </tr>
+    <tr>
+        <td><div class='tt'>AV R Leg: </div></td><td><input type='number' name='attr_AVrleg'  value=0 /></td>
+    </tr>
+</table>
+</div>
+<div class="sheet-tab5">
+<h3>Medical</h3>
+<textarea name="attr_medlog" ></textarea>
+</div>
+<div class="sheet-tab6">
+        <h3>Equipment Carried</h3>      
+<fieldset class="repeating_equip">     
+
+<table>
+<tr><td>Item: </td><td class='sk'><input type="text" name="attr_itemname" /></td><td>Cost: </td><td> <input type='text' class='medsm' name='attr_itemcost' />  </td><td>Mass: </td><td> <input type='text' class='medsm' name='attr_itemmass' />  </td></tr></table>     
+</fieldset>
+</div>
+<div class="sheet-tab7">
+
+    <h3>Notes</h3> 
+<fieldset class="repeating_notes">     
+
+<table><tr><td><textarea name="attr_notes"></textarea></td></tr></table>
+</fieldset>
+  </div>
+<div class="sheet-tab8">
+<h3>Log</h3>
+<textarea name="attr_lognote" ></textarea>
+ </div></div>
+
+<hr />
+
+    <img src="http://www.mongoosepublishing.com/media/catalog/category/Traveller_front6_1.jpg" align: "middle" style=";max-height: 100px;">
+
+</div>
+    <label>Author: Jim M and Wade Wilson (Black Falcon on Roll20)</label>
+</div>
+
+<rolltemplate class="sheet-rolltemplate-SF">
+    <table>
+        <tr><th>{{name}}</th></tr> 
+        <tr><td style="text-align: center">{{#roll_name}} {{roll_name}}{{/roll_name}}</td></tr>
+        <tr>
+            <td class="result">ROLL: {{result}} vs {{final}}</td></tr>
+        <tr><td style="font-weight: bold;font-size:100%">
+            {{#rollWasCrit() result}}
+                {{crit}}
+            {{/rollWasCrit() result}}
+            {{#rollWasFumble() result}}
+                {{fail}}
+            {{/rollWasFumble() result}}
+            {{#success}}
+                {{success}}
+            {{/success}}
+        </td></tr>
+        <tr><td class="attr">
+            {{#attr}}
+                {{attr}}: {{attr_num}}
+            {{/attr}}
+            <br>
+            {{#mod_num}}
+                &nbsp;&nbsp;MODIFIERS: ({{mod_num}})
+            {{/mod_num}} 
+        </td></tr> 
+    </table>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-SFAttack">
+    <table>
+        <tr><th style="padding-top:20px">{{name}}</th></tr> 
+        <tr><td style="text-align: center;text-decoration: underline;vertical-align:top">{{#roll_name}} {{roll_name}}{{/roll_name}}</td></tr>
+        <tr>
+        <td style="font-weight: bold;font-size:100%">
+            {{#target}}
+                TARGET: {{target}}
+            {{/target}}
+        </td></tr>
+            <tr><td class="result">ATTACK: {{result}}% vs {{final}}%</td></tr>
+            {{#damage}}
+            <tr><td class="result">DAMAGE: {{damage}}</td></tr>
+            {{/damage}}
+            {{#effect}}
+            <tr><td class="result">EFFECT: <span style="font-size:80%">{{effect}}</span></td></tr>
+            {{/effect}}
+            {{#blast}}
+            <tr><td class="result">BLAST RADIUS: {{blast}} M</td></tr>
+            {{/blast}}
+        <tr><td style="font-weight: bold;font-size:80%;">
+            {{#rollWasCrit() result}}
+                {{crit}}
+                <br>
+            {{/rollWasCrit() result}}
+            {{#rollWasFumble() result}}
+                {{critFail}}
+                <br>
+            {{/rollWasFumble() result}}
+            {{#ammouse}}
+                <span style="padding-left:45px;text-decoration:underline">AMMO USED:</span> <br> {{ammouse}}
+            {{/ammouse}}
+        </td><tr>
+        <td style="text-align: center;font-weight: bold;vertical-align:bottom;text-decoration: underline;">ATTACK MODIFIERS
+        </td></tr><tr><td style="font-weight: bold;font-size:80%">
+            {{#att}}
+                ATTACK SCORE: {{att}}%
+                <br>
+            {{/att}}
+            {{#skill_num}}
+                SKILL LEVEL: ({{skill_num}}) = {{skill_total}}%
+                <br>
+            {{/skill_num}}
+            {{#attack_mod}}
+                {{COMBAT}} MODIFIERS: ({{attack_mod}})%
+                <br>
+            {{/attack_mod}}
+            {{#Weapon_Mod}}
+                WEAPON MODIFIER: {{Weapon_Mod}}%
+            {{/Weapon_Mod}}
+        </td></tr> 
+    </table>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-SFSkill">
+    <table>
+        <tr></tr><tr><th style="text-align:center;">{{name}}</th></tr> 
+        <tr><td style="text-align:center;">{{#roll_name}} {{roll_name}}{{/roll_name}}<br>{{skill}} CHECK</td></tr>
+        <tr><td style="text-align:center;"><span class="result">ROLL: {{result}}% vs {{final}}%</span>
+
+        <span class="result">
+            {{#rollWasCrit() result}}
+                <br><br>
+                {{crit}}
+            {{/rollWasCrit() result}}
+            {{#rollWasFumble() result}}
+                <br><br>
+                {{fail}}
+            {{/rollWasFumble() result}}
+        </span></td></tr>
+        <tr><td><span class="headers" style="padding-left:47px">SUCCESS</span>
+            <br>
+        <span class="description">
+            {{#patient}}
+                PATIENT: {{patient}}
+                <br>
+            {{/patient}}
+            {{#success}}
+                {{success}}
+            {{/success}}
+        </span>
+          <br>
+        <span class="headers" style="padding-left:50px">FAILURE</span>
+            <br>
+        <span class="description">
+            {{#failure}}
+                {{failure}}
+            {{/failure}}
+        </span>
+            <br><br>
+        <span class ="description" style="padding-left:20px">
+            {{#time}}
+                Time:  {{time}}
+            {{/time}}
+        </span><br><br>
+        <span class="headers">SKILL MODIFIERS</span>
+            {{#base}}
+                <span class="mods">
+                <br>BASE SCORE: {{base}}%
+                </span>
+            {{/base}}
+            {{#skill_num}}
+                <span class="mods">
+                <br>SKILL LEVEL: ({{skill_num}}) = {{skill_total}}%
+                </span>
+            {{/skill_num}}
+            {{#neg_mod}}
+                <span class="mods">
+                <br>{{NEGATIVE}}: {{neg_mod}}%
+                </span>
+            {{/neg_mod}}
+            {{#misc_mod}}
+                <span class="mods">
+                <br>MISC MODIFIER(S): {{misc_mod}}%
+                </span>
+            {{/misc_mod}}
+</td></tr> 
+    </table>
+</rolltemplate>

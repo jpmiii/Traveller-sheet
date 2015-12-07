@@ -20,7 +20,7 @@
     <tr>
         <td><div class="tt">Strength </div></td>
         <td><input type='number' class='short' name='attr_Strength_max' value="7"/></td>
-        <td><input type='number' class='short' name='attr_Strength' value="0" /></td>
+        <td><input type='number' pattern='[^\s\+]' class='short' name='attr_Strength' value="0" /></td>
         <td><button type='roll' value='@{character_name} Strength roll \n/roll 2d6 + @{Strength} [Str mod]  + ?{Mod|0} [Mods]+ @{Impairment} [Impairment]' /></td>
     </tr>
     <tr>
@@ -85,13 +85,62 @@
      
  <h3>Skills</h3>
 
+
+
+<fieldset class="repeating_skills1">     
+
+<table>
+    
+<!-->
+?{Base Attribute|Strength,@{Strength}|Dexterity,@{Dexterity}|Endurance,@{Endurance}|Intelligence,@{Intelligence}|Education,@{Education}|Social,@{Social}|Psionics,@{Psi}}
+</!-->
+
+<tr><td><button type='roll' value='@{character_name} uses @{skillname} - effect level [[2d6+@{Impairment} [Impairment] + @{attmod} [Attribute Mod]+@{modtot} [Mods]+@{skillvalue} [Skill]-8]]' /></td><td><input type="text" placeholder='Skill Name' class='med' name="attr_skillname" /></td><td> <input type='number' name='attr_skillvalue' /></td> 
+<td>
+<select required name='attr_attmod'>
+			<option selected disabled value="">Attribute Modifier</option>
+			<option value="@{Strength}">Strength</option>
+			<option value="@{Dexterity}">Dexterity</option>
+			<option value="@{Endurance}">Endurance</option>
+			<option value="@{Intelligence}">Intelligence</option>
+			<option value="@{Education}">Education</option>
+			<option value="@{Social}">Social</option>
+			<option value="@{Psionics}">Psionics</option>
+	</select>
+</td><td>
+    <input type='number' name='attr_modtot' value=0 />
+</td></tr>     
+</table>
+    
+    
+</fieldset>
+
+<!-->
+</div>
+<div class='sheet-col'>
+
+<fieldset class="repeating_skills2">     
+
+<table>
+    
+
+<tr><td><button type='roll' value='@{character_name} uses @{skillname} - effect level [[2d6+@{Impairment} [Impairment] +?{Base Attribute|Strength,@{Strength}|Dexterity,@{Dexterity}|Endurance,@{Endurance}|Intelligence,@{Intelligence}|Education,@{Education}|Social,@{Social}|Psionics,@{Psi}} [Attribute Mod] +?{Mod|0} [Mods]+@{skillvalue} [Skill]-8]]' /></td><td><input type="text" class='med' name="attr_skillname" /></td><td> <input type='number' name='attr_skillvalue' />  </td></tr>     
+</table>
+    
+    
+</fieldset>
+</div>
+</div>
+</!-->
+<hr></hr>
+
 <div class='sheet-3colrow'>
 <div class='sheet-col'>
   <table>
   
   
   
-<tr><td><button type='roll' value='@{character_name} uses Admin -  [[2d6 + @{Impairment} [Impairment]  + ?{Mod|0} [Mods] + @{Admin_skill} [Skill]   - 7]]' /></td><td> <h4>Admin</h4></td><td> <input type='number' name='attr_Admin_skill' />  </td></tr>
+<tr><td><button type='roll' value='@{character_name} uses Admin -  [[2d6 + @{Impairment} [Impairment]  + ?{Mod|0} [Mods] + @{Admin_skill} [Skill]   - 7]]' /></td><td> <h4>Admin</h4></td><td> <input type='number' pattern='[^\s\+]'  name='attr_Admin_skill' />  </td></tr>
 
 <tr><td><button type='roll' value='@{character_name} uses Advocate - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Advocate_skill} [Skill] -7]]' /></td><td>        <h4>Advocate</h4></td><td> <input type='number' name='attr_Advocate_skill' />  </td></tr>
 
@@ -203,7 +252,8 @@
           
 <table>
           
-          
+<tr><td><button type='roll' value='@{character_name} uses Forgery - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Forgery_skill} [Skill] -7]]' /></td><td>    <h4>Forgery</h4></td><td> <input type='number' name='attr_Forgery_skill' />  </td></tr>
+
           
 <tr><td><button type='roll' value='@{character_name} uses Gambler - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{Gambler_skill} [Skill] -7]]' /></td><td>    <h4>Gambler</h4></td><td> <input type='number' name='attr_Gambler_skill' />  </td></tr>
 
@@ -588,12 +638,6 @@ This skill covers tactical planning and decision making, from board games to squ
    
 
 <hr></hr>
-
-<fieldset class="repeating_skills">     
-
-<table>
-<tr><td><button type='roll' value='@{character_name} uses @{skillname} - success level [[2d6+@{Impairment} [Impairment] +?{Mod|0} [Mods]+@{skillvalue}-7]]' /></td><td class='sk'><input type="text" class='med' name="attr_skillname" /></td><td> <input type='number' name='attr_skillvalue' />  </td></tr></table>     
-</fieldset>
 
 
 </div>
